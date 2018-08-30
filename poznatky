@@ -1,0 +1,61 @@
+permutace délky 5, které nejdou naivně sortovat na 2 zásobnících jsou takové,
+které končí 5 1
+
+
+permutace délky 9, které nejdou naivně sortovat na 3 zásobnících jsou takové,
+které končí 9 1
+
+
+
+
+
+
+MY OPTIMIZED NAIVE ALGORITHM FOR K STACKS IN SERIES IS
+======================================================
+
+------------------------------------------------
+generate_naive_agenda(k)
+actual_naive_agenda := naive_agenda[0]
+repeat until finished or total_deadlock:
+
+    if local_deadlock:
+        actual_naive_agenda := naive_agenda.next
+
+    while 1_optimizable:
+        1_optimize
+
+    naive_step(actual_naive_agenda)
+------------------------------------------------
+
+
+naive_step((i, flag) #  flag can be either 'asc' or 'desc'
+
+if asc:
+    if minimal i_available value < i_stack[0]:
+        pop minimal i_available value
+    else:
+        raise local_deadlock
+else if desc:
+    if maximal i_available value > i_stack[0]:
+        pop maximal i_available value
+    else:
+        raise local_deadlock
+
+
+NAIVE AGENDA FOR K STACKS
+=========================
+(k, desc)
+(k-1, desc)
+.
+.
+.
+(1, desc)
+
+
+EXPLANATION
+===========
+
+finished <=> permutation is sorted on the output
+accessible value <=> value on top of a stack or next input
+total_deadlock <=> situation is not optimizable and naive agenda is at last step
+K_available values <=> values on top of stacks marked less then K or next input
